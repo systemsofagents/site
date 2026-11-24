@@ -53,3 +53,4 @@ jobs:
             done
             test "$matched" = true || { printf 'Public asset did not match: /%s\n' "$path"; exit 1; }
             printf 'Verified /%s\n' "$path"
+          done
