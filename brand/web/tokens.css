@@ -1,0 +1,14 @@
+:root {
+  color-scheme: dark;
+  --soa-terminal: #101613;
+  --soa-panel: #18211C;
+  --soa-text: #E8F0E9;
+  --soa-muted: #A2B2A7;
+  --soa-phosphor: #C9F879;
+  --soa-cursor: #F7C982;
+  --soa-rule: #2C3B32;
+  --soa-paper: #F3F5ED;
+  --soa-forest: #345414;
+  --soa-mono: "DejaVu Sans Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --soa-prose: "Open Sans", system-ui, sans-serif;
+}

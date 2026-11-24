@@ -1,0 +1,10 @@
+WCAG relative-luminance contrast ratios (foreground / background)
+Text / Terminal: 15.77:1
+Text / Panel: 14.19:1
+Muted / Terminal: 8.26:1
+Muted / Panel: 7.43:1
+Phosphor / Terminal: 14.99:1
+Phosphor / Panel: 13.50:1
+Cursor / Terminal: 11.89:1
+Cursor / Panel: 10.71:1
+Forest / Paper: 7.88:1
