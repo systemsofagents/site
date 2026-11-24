@@ -1,1 +1,3 @@
-Systems of Agents is a collection of experiments on how to build environments where humans and agents can work together. These notes will grow into a book.
+Systems of Agents maps out how to build systems in which humans and agents work together to accomplish increasingly complex tasks.
+
+[Experiments on GitHub](https://github.com/systemsofagents/experiments)
