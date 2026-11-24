@@ -12,6 +12,6 @@ Run `python3 build.py`, then `python3 -m http.server 8000 --bind 127.0.0.1 --dir
 
 ## Deployment
 
-In Cloudflare Workers Builds, connect only this repository to the existing `systems-of-agents` Worker. Select `main` as the production branch and leave preview builds disabled. Use root directory `/`, build command `python3 build.py`, and deploy command `npx --yes wrangler@4.154.0 deploy`. The existing custom domain and disabled preview settings are pinned in `wrangler.jsonc`. Use the native integration’s deploy credentials; do not add credentials to the repository.
+A push to `main` in this repository publishes to the existing `systems-of-agents` Cloudflare Worker. The GitHub Actions workflow builds the static files, uploads a version and promotes that version to 100%, then compares the public site with the build. It does not update DNS or custom domains. Preview and pull-request builds do not deploy.
 
-Before connecting, run `python3 build.py` and `npx --yes wrangler@4.154.0 deploy --dry-run`, then push the verified source. Verify the Cloudflare build for the pushed commit and the live homepage and Track 01. For recovery, use the last known good version in the Worker’s Deployments history.
+The GitHub `production` environment allows only the `main` branch. Its `SYSTEMS_OF_AGENTS_CLOUDFLARE_API_TOKEN` secret must be a Cloudflare account-owned Editor token scoped only to the existing Worker. To recover a previous release, choose the last known good version in that Worker's Deployments history.

@@ -1,0 +1,55 @@
+name: Publish site
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: systemsofagents-production
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'systemsofagents/site' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: production
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Build and validate
+        run: |
+          python3 build.py
+          node --check dist/terminal.js
+          npx --yes wrangler@4.154.0 versions upload --dry-run --strict
+      - name: Upload and promote this version
+        env:
+          CLOUDFLARE_ACCOUNT_ID: d64391fc864f0327e740b56e3e461ac2
+          CLOUDFLARE_API_TOKEN: ${{ secrets.SYSTEMS_OF_AGENTS_CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          tag="site-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          npx --offline --yes wrangler@4.154.0 versions upload --name systems-of-agents --strict --tag "$tag" --message "GitHub main ${GITHUB_SHA}"
+          npx --offline --yes wrangler@4.154.0 versions deploy --name systems-of-agents --version-tag "$tag@100" --yes --message "GitHub main ${GITHUB_SHA}"
+      - name: Verify anonymous public outputs
+        run: |
+          set -euo pipefail
+          fetched=$(mktemp)
+          trap 'rm -f "$fetched"' EXIT
+          for f in index.html tracks/01/index.html terminal.js terminal.css favicon.svg brand/logos/mark-dark.svg brand/icons/icon-180.png brand/social/og-home.png brand/social/og-track-01.png; do
+            path="$f"
+            case "$f" in
+              index.html) path="" ;;
+              tracks/01/index.html) path="tracks/01/" ;;
+            esac
+            matched=false
+            for attempt in 1 2 3 4 5 6; do
+              if curl -fsSL --max-time 15 -o "$fetched" "https://systemsofagents.org/$path?release=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" && cmp -s "dist/$f" "$fetched"; then
+                matched=true
+                break
+              fi
+              sleep 3
+            done
+            test "$matched" = true || { printf 'Public asset did not match: /%s\n' "$path"; exit 1; }
+            printf 'Verified /%s\n' "$path"
