@@ -20,7 +20,6 @@ jobs:
       - name: Build and validate
         run: |
           python3 build.py
-          node --check dist/terminal.js
           npx --yes wrangler@4.154.0 versions upload --dry-run --strict
       - name: Upload and promote this version
         env:
@@ -37,7 +36,7 @@ jobs:
           set -euo pipefail
           fetched=$(mktemp)
           trap 'rm -f "$fetched"' EXIT
-          for f in index.html tracks/01/index.html terminal.js terminal.css favicon.svg brand/logos/mark-dark.svg brand/icons/icon-180.png brand/social/og-home.png brand/social/og-track-01.png; do
+          for f in index.html tracks/01/index.html site.css favicon.svg brand/logos/mark-dark.svg brand/icons/icon-180.png brand/social/og-home.png brand/social/og-track-01.png; do
             path="$f"
             case "$f" in
               index.html) path="" ;;

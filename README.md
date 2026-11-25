@@ -4,7 +4,7 @@ Source for https://systemsofagents.org/. Published experiment code and notes bel
 
 ## Development
 
-Run `python3 build.py`, then `python3 -m http.server 8000 --bind 127.0.0.1 --directory dist`. The site is static; its terminal reads only the Markdown embedded during the build.
+Run `python3 build.py`, then `python3 -m http.server 8000 --bind 127.0.0.1 --directory dist`. The site is static and uses no JavaScript. The homepage links to the experiments repository. Existing track URLs remain accessible as plain articles.
 
 - Edit website copy in `content/` and public design assets in `static/`.
 - To publish an approved experiment note in Track 01, add a Markdown file under `content/tracks/01/` named `NNN-short-title.md` with a first-line heading. Link to implementation details and source notes in the experiments repository as appropriate.

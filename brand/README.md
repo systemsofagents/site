@@ -7,13 +7,10 @@ are the participants; the amber square is the handoff. The mark belongs to the
 system, not to a single agent. It should feel like a small notation from a
 technical manual, not a chatbot mascot.
 
-**Positioning:** A field lab for human–agent systems. Experiments and simulations
-come first; the book grows out of what survives testing.
+**Positioning:** An exploration of the patterns we can use to organize agents to do useful work and make steady progress toward long-term objectives.
 
 **Voice:** Short and specific. Say what the system did, what the environment
-allowed, and what the experiment actually established. Reserve system labels
-and terminal commands for real navigation. Avoid fake logs, CRT effects, and
-AI imagery that competes with the work.
+allowed, and what the experiment actually established. Keep public pages simple. Avoid shell chrome, fake logs, CRT effects, and AI imagery that competes with the work.
 
 ## Identity
 
