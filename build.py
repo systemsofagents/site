@@ -63,7 +63,7 @@ def render(template, dest, md, values):
 
 def main():
     ASSETS.mkdir(exist_ok=True)
-    for file in ('site.css','favicon.svg'):
+    for file in ('site.css','favicon.svg','timeline-study.jpg'):
         shutil.copyfile(ROOT/'static'/file, ASSETS/file)
     for file in ("logos/mark-dark.svg","icons/icon-180.png","social/og-home.png","social/og-track-01.png"):
         target=ASSETS/"brand"/file

@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Systems of Agents</title>
-<meta name="description" content="An exploration of the patterns we can use to organize agents to do useful work and make steady progress toward long-term objectives.">
+<meta name="description" content="An exploration of how people and agents work together to do useful work and make steady progress over time.">
 <meta name="theme-color" content="#101613"><link rel="canonical" href="https://systemsofagents.org/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/site.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Systems of Agents">
 <meta property="og:title" content="Systems of Agents">
-<meta property="og:description" content="An exploration of the patterns we can use to organize agents to do useful work and make steady progress toward long-term objectives.">
+<meta property="og:description" content="An exploration of how people and agents work together to do useful work and make steady progress over time.">
 <meta property="og:url" content="https://systemsofagents.org/">
 <meta property="og:image" content="https://systemsofagents.org/brand/social/og-home.png?v=2">
 <meta property="og:image:width" content="1200">
@@ -14,16 +14,40 @@
 <meta property="og:image:alt" content="Systems of Agents and its Handoff mark.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Systems of Agents">
-<meta name="twitter:description" content="An exploration of the patterns we can use to organize agents to do useful work and make steady progress toward long-term objectives.">
+<meta name="twitter:description" content="An exploration of how people and agents work together to do useful work and make steady progress over time.">
 <meta name="twitter:image" content="https://systemsofagents.org/brand/social/og-home.png?v=2">
 <meta name="twitter:image:alt" content="Systems of Agents and its Handoff mark.">
 <link rel="apple-touch-icon" href="/brand/icons/icon-180.png">
 </head>
 <body>
-<main class="landing">
-  <img class="mark" src="/brand/logos/mark-dark.svg" width="64" height="64" alt="">
-  <h1>Systems of Agents</h1>
-  <div class="intro">%%MARKDOWN%%</div>
+<main class="scene">
+  <header class="scene-wrap scene-intro">
+    <div class="scene-field" aria-hidden="true">
+      <img class="scene-art" src="/timeline-study.jpg" width="1536" height="1024" fetchpriority="high" alt="">
+      <span class="scene-pulse"></span>
+    </div>
+    <img class="mark" src="/brand/logos/mark-dark.svg" width="56" height="56" alt="">
+    <h1>Systems of Agents</h1>
+    <div class="intro">%%MARKDOWN%%</div>
+  </header>
+  <section class="scene-wrap timeline" aria-labelledby="timeline-heading">
+    <h2 id="timeline-heading">One timeline, many roles.</h2>
+    <p class="timeline-intro">People, tools, and the world around them create events. Choose a moment to see which agents pick it up.</p>
+    <fieldset class="event-rail">
+      <legend class="sr-only">Choose a moment in the timeline</legend>
+      <label class="event-choice"><input type="radio" name="timeline" value="1" checked><span>A message arrives</span></label>
+<label class="event-choice"><input type="radio" name="timeline" value="2" ><span>A file changes</span></label>
+<label class="event-choice"><input type="radio" name="timeline" value="3" ><span>A scheduled wake</span></label>
+<label class="event-choice"><input type="radio" name="timeline" value="4" ><span>A change is approved</span></label>
+    </fieldset>
+    <div class="event-detail" aria-live="polite">
+      <section class="event-view" data-event="1"><p class="event-source">From a person</p><h3>“Can we move the Friday review?”</h3><dl><div><dt>Conversation</dt><dd>Asks which time works. The calendar stays unchanged.</dd></div><div><dt>Archive</dt><dd>Keeps the request with its original wording and time.</dd></div></dl></section>
+<section class="event-view" data-event="2"><p class="event-source">From the workspace</p><h3>A revised agenda lands in the shared folder.</h3><dl><div><dt>Workspace</dt><dd>Indexes the new version and keeps the previous one available.</dd></div><div><dt>Research</dt><dd>Asks another agent to check which agenda items changed.</dd></div><div><dt>Archive</dt><dd>Links the revision to the earlier request.</dd></div></dl></section>
+<section class="event-view" data-event="3"><p class="event-source">From the system</p><h3>The thread is getting too long to replay.</h3><dl><div><dt>Compaction</dt><dd>Builds a short working brief with links to the exact decisions.</dd></div><div><dt>Archive</dt><dd>Keeps the original timeline searchable.</dd></div><div><dt>Conversation</dt><dd>Picks up from the brief without asking everyone to start over.</dd></div></dl></section>
+<section class="event-view" data-event="4"><p class="event-source">From a person</p><h3>“Friday at 2 is good. Go ahead and update the invite.”</h3><dl><div><dt>External systems</dt><dd>Updates the calendar within the permission given.</dd></div><div><dt>Conversation</dt><dd>Reports the confirmed time back to the people involved.</dd></div><div><dt>Archive</dt><dd>Records the approval and the update receipt.</dd></div></dl></section>
+    </div>
+    <p class="timeline-note">An illustrative scenario, not a live stream.</p>
+  </section>
 </main>
 </body>
 </html>

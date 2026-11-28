@@ -36,7 +36,7 @@ jobs:
           set -euo pipefail
           fetched=$(mktemp)
           trap 'rm -f "$fetched"' EXIT
-          for f in index.html tracks/01/index.html site.css favicon.svg brand/logos/mark-dark.svg brand/icons/icon-180.png brand/social/og-home.png brand/social/og-track-01.png; do
+          for f in index.html tracks/01/index.html site.css favicon.svg timeline-study.jpg brand/logos/mark-dark.svg brand/icons/icon-180.png brand/social/og-home.png brand/social/og-track-01.png; do
             path="$f"
             case "$f" in
               index.html) path="" ;;

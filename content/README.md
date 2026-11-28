@@ -1,3 +1,3 @@
-An exploration of the patterns we can use to organize agents to do useful work and make steady progress toward long-term objectives.
+An exploration of how people and agents work together to do useful work and make steady progress over time.
 
-[Explore the experiments on GitHub](https://github.com/systemsofagents/experiments)
+[Explore the research on GitHub ↗](https://github.com/systemsofagents/experiments)
